@@ -5,7 +5,7 @@
 ![SQLite](https://img.shields.io/badge/SQLite-lightgrey)
 ![JWT](https://img.shields.io/badge/JWT-auth-orange)
 
-**A REST API for managing tasks with secure user authentication. Built with FastAPI, JWT, and SQLite. Perfect for a junior backend developer portfolio.**
+**A REST API for managing tasks with secure user authentication. Built with FastAPI, JWT, and SQLite.**
 
 ---
 
