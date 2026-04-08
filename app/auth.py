@@ -3,12 +3,16 @@ from jose import JWTError, jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+import os
+from dotenv import load_dotenv
 
 from .database import SessionLocal
 from .crud import get_user_by_email, pwd_context
 from . import models
 
-SECRET_KEY = "supersecretkey"  # w docelowym projekcie wrzuca się to do .env
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
