@@ -97,4 +97,3 @@ app/
 - Passwords are hashed with bcrypt  
 - SQLite can be replaced with PostgreSQL in production
 - API docs available at `/docs` (Swagger) and `/redoc` (ReDoc)
-

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr,Field
 
 # -------------------------
 # USER SCHEMAS
@@ -8,7 +8,7 @@ class UserBase(BaseModel):
     email: EmailStr
 
 class UserCreate(UserBase):
-    password: str
+    password: str = Field(..., min_length=8, max_length=72, description="Password must be 8-72 characters long")
 
 class UserOut(UserBase):
     id: int
@@ -26,7 +26,8 @@ class TaskBase(BaseModel):
     description: str | None = None
 
 class TaskCreate(TaskBase):
-    pass
+    title: str = Field(..., min_length=1, max_length=100)
+    description: str | None = Field(None, max_length=500)
 
 class TaskOut(TaskBase):
     id: int

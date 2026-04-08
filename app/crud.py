@@ -13,6 +13,9 @@ def get_user_by_email(db: Session, email: str):
 
 
 def create_user(db: Session, user: schemas.UserCreate):
+    existing_user = get_user_by_email(db, user.email)
+    if existing_user:
+        raise ValueError("User with this email already exists")
     hashed_password = pwd_context.hash(user.password)
     db_user = models.User(email=user.email, hashed_password=hashed_password)
     db.add(db_user)
